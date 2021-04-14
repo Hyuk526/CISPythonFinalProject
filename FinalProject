@@ -1,27 +1,42 @@
+# Checks the input pin versus the account pin
 def pinSecurity(pin, userPin):
     if pin == userPin:
         return True
     else:
         return False
-#def withdraw()
+
+# Withdraws the amount from the user from the account balance
+def withdraw(num1, num2):
+    num2 -= num1
+    print("Withdrew", num1, '\n', "Remaining balance", num2)
+    return num2
+    
+# Does the function
 def main():
+    # Example pin to access the user's account detail
     userPin = 4444
-    name = "Tyrone Johnson" #str(input("Enter user's full name: "))
+    name = "Football Johnson" #str(input("Enter user's full name: "))
     DoB = "04/20/1969" #str(input("Enter user's date of birth (e.g. MM/DD/YYYY): "))
     phoneNum = "666-666-6666" #str(input("Enter user's phone number (e.g. XXX-XXX-XXXX): "))
-    balance = 200000000
-    userDetails = [userPin, name, DoB, phoneNum, balance]
+    balance = 16420
+    # Establishes the list of the account's details
+    userDetails = [userPin, name, DoB, phoneNum, "Current balance:", balance]
     
+    # Asks for the user to enter a 4-digit pin to access an account. Maybe add in other accounts to see other account details.
     pin = int(input("Enter 4-digit pin: "))
-    pinCode = pinSecurity(pin, userPin)
-    #if pin in userDetails:
-    #    print(userDetails[1:5])
-    #else:
-    #    print("Incorrect pin.")
+    # Checks the pin validation
+    pinValidation = pinSecurity(pin, userPin)
     
-    
-    if pinCode == True:
-        print(userDetails[1:5])
+    # If the pin matches with the account, display the account detail, otherwise, don't.
+    if pinValidation == True:
+        print(userDetails[1:6])
     else:
         print("Pin incorrect. Please try again. ")
+    
+    # Asks for user to enter a withdrawal amount
+    withdrawAmount = float(input("Enter withdrawal amount: "))
+    # Does the withdrawal function
+    withdraw(withdrawAmount, balance)
+    
+# Executes code
 main()
