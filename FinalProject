@@ -1,26 +1,27 @@
-#def pinSecurity(pin, userPin):
-#    if pin == userPin:
-#        return True
-#    else:
-#        return False
+def pinSecurity(pin, userPin):
+    if pin == userPin:
+        return True
+    else:
+        return False
+#def withdraw()
 def main():
     userPin = 4444
     name = "Tyrone Johnson" #str(input("Enter user's full name: "))
     DoB = "04/20/1969" #str(input("Enter user's date of birth (e.g. MM/DD/YYYY): "))
     phoneNum = "666-666-6666" #str(input("Enter user's phone number (e.g. XXX-XXX-XXXX): "))
-    userDetails = [userPin, name, DoB, phoneNum]
+    balance = 200000000
+    userDetails = [userPin, name, DoB, phoneNum, balance]
     
     pin = int(input("Enter 4-digit pin: "))
-    
-    if pin in userDetails:
-        print(userDetails[1:4])
-    else:
-        print("Incorrect pin.")
-    
-    #print(pinSecurity(pin, userPin))
-    
-    #if pinSecurity == True:
-    #    print(userDetails)
+    pinCode = pinSecurity(pin, userPin)
+    #if pin in userDetails:
+    #    print(userDetails[1:5])
     #else:
-    #    print("Pin incorrect. Please try again. ")
+    #    print("Incorrect pin.")
+    
+    
+    if pinCode == True:
+        print(userDetails[1:5])
+    else:
+        print("Pin incorrect. Please try again. ")
 main()
