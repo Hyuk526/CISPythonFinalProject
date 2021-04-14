@@ -1,8 +1,8 @@
-def pinSecurity(pin, userPin):
-    if pin == userPin:
-        return True
-    else:
-        return False
+#def pinSecurity(pin, userPin):
+#    if pin == userPin:
+#        return True
+#    else:
+#        return False
 def main():
     userPin = 4444
     name = "Tyrone Johnson" #str(input("Enter user's full name: "))
