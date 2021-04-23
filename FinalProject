@@ -5,20 +5,20 @@ def pinSecurity(pin, userPin):
     else:
         return False
 
-# Withdraws the amount from the user from the account balance
-def withdraw(num1, num2):
-    num2 -= num1
-    print("Withdrew", num1, '\n', "Remaining balance", num2)
+# Deposits the amount from the user from the account balance
+def deposit(num1, num2):
+    num2 += num1
+    print("Deposit", num1, '\n', "New balance", num2)
     return num2
     
 # Does the function
 def main():
     # Example pin to access the user's account detail
-    userPin = 4444
-    name = "Football Johnson" #str(input("Enter user's full name: "))
-    DoB = "04/20/1969" #str(input("Enter user's date of birth (e.g. MM/DD/YYYY): "))
-    phoneNum = "666-666-6666" #str(input("Enter user's phone number (e.g. XXX-XXX-XXXX): "))
-    balance = 16420
+    userPin = 3260
+    name = "Dr. Long, Yuan" #str(input("Enter user's full name: "))
+    DoB = "04/20/1982" #str(input("Enter user's date of birth (e.g. MM/DD/YYYY): "))
+    phoneNum = "404-413-7385" #str(input("Enter user's phone number (e.g. XXX-XXX-XXXX): "))
+    balance = 50000
     # Establishes the list of the account's details
     userDetails = [userPin, name, DoB, phoneNum, "Current balance:", balance]
     
@@ -30,13 +30,45 @@ def main():
     # If the pin matches with the account, display the account detail, otherwise, don't.
     if pinValidation == True:
         print(userDetails[1:6])
-    else:
-        print("Pin incorrect. Please try again. ")
+        # Jared's code: Options after pin
+        usr_input = int(input("Withdrawal enter 1, Deposit enter 2, Loan enter 3: "))
+        if usr_input == 1: 
+            usr_input2 = usr_input2 = float(input("Enter withdrawal amount:")) 
+            final_account_balance = initial_account_balance - usr_input2 
+            print(final_account_balance) 
+        elif usr_input == 2: 
+            usr_input3 = float(input("Enter deposit amount:")) 
+            final_account_balance = initial_account_balance + usr_input3 
+            print(final_account_balance) 
+        elif usr_input == 3: 
+            usr_input4 = float(input("Enter loan amount:")) 
+            usr_input5 = int(input("Enter length of loan in years:")) 
+            usr_input6 = float(input("Interest rate is 12%. Annual interest rate enter 1, Semi annual interest rate enter 2, quarterly interest rate enter 3, monthyl interest rate enter 4")) 
+            if usr_input6 == 1: 
+                annual_interest_rate = .12 
+                loan_amount_due = usr_input4 * annual_interest_rate * usr_input5 
+                print("Annual loan amount due: ",loan_amount_due) 
+            elif usr_input6 == 2: 
+                semi_annual_interest_rate = .12 / 2 
+                loan_amount_due = usr_input4 * semi_annual_interest_rate * usr_input5 
+                print("Semi-Annual loan amount due: ",loan_amount_due) 
+            elif usr_input6 == 3: 
+                quartly_interest_rate = .12 / 4 
+                loan_amount_due = usr_input4 * quartly_interest_rate * usr_input5 
+                print("Quarterly loan amount due: ",loan_amount_due) 
+            elif usr_input6 == 4: 
+                monthly_interest_rate = .12 / 12 
+                loan_amount_due = usr_input4 * monthly_interest_rate * usr_input5 
+                print("Monthly loan amount due: ",loan_amount_due) 
+            else:
+                print("Error")
+        else: 
+            print("Error") 
     
-    # Asks for user to enter a withdrawal amount
-    withdrawAmount = float(input("Enter withdrawal amount: "))
-    # Does the withdrawal function
-    withdraw(withdrawAmount, balance)
+    # Asks for user to enter a deposit amount
+    depositAmount = float(input("Enter deposit amount: "))
+    # Does the deposit function
+    deposit(depositAmount, balance)
     
 # Executes code
 main()
