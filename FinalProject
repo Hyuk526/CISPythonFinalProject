@@ -4,13 +4,6 @@ def pinSecurity(pin, userPin):
         return True
     else:
         return False
-
-# Deposits the amount from the user from the account balance
-def deposit(num1, num2):
-    num2 += num1
-    print("Deposit", num1, '\n', "New balance", num2)
-    return num2
-    
 # Does the function
 def main():
     # Example pin to access the user's account detail
@@ -34,16 +27,17 @@ def main():
         usr_input = int(input("Withdrawal enter 1, Deposit enter 2, Loan enter 3: "))
         if usr_input == 1: 
             usr_input2 = usr_input2 = float(input("Enter withdrawal amount:")) 
-            final_account_balance = initial_account_balance - usr_input2 
-            print(final_account_balance) 
+            balance -= usr_input2
+            print("Withdrew", usr_input2, "New balance: ", balance) 
+        # Andy worked up to here.
         elif usr_input == 2: 
             usr_input3 = float(input("Enter deposit amount:")) 
-            final_account_balance = initial_account_balance + usr_input3 
-            print(final_account_balance) 
+            balance += usr_input3
+            print("Deposited" , usr_input3, "New balance: ", balance) 
         elif usr_input == 3: 
             usr_input4 = float(input("Enter loan amount:")) 
             usr_input5 = int(input("Enter length of loan in years:")) 
-            usr_input6 = float(input("Interest rate is 12%. Annual interest rate enter 1, Semi annual interest rate enter 2, quarterly interest rate enter 3, monthyl interest rate enter 4")) 
+            usr_input6 = float(input("Interest rate is 12%. Annual interest rate enter 1, Semi annual interest rate enter 2, quarterly interest rate enter 3, monthly interest rate enter 4: ")) 
             if usr_input6 == 1: 
                 annual_interest_rate = .12 
                 loan_amount_due = usr_input4 * annual_interest_rate * usr_input5 
@@ -64,11 +58,8 @@ def main():
                 print("Error")
         else: 
             print("Error") 
-    
-    # Asks for user to enter a deposit amount
-    depositAmount = float(input("Enter deposit amount: "))
-    # Does the deposit function
-    deposit(depositAmount, balance)
+    else:
+        print("Incorrect Pin")
     
 # Executes code
 main()
